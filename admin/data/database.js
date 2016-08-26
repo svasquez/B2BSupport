@@ -16,6 +16,7 @@
           theDb = {
             db: db,
             products : db.collection("products"),
+            categories : db.collection("categories")
           };
           //next(null, theDb);
          return  Promise.resolve(theDb)
