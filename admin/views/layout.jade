@@ -1,7 +1,22 @@
 doctype html
 html
   head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='')
+    meta(name='author', content='Smill Vásquez')
     title= title
+    link(href='/libs/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/libs/bootstrap/dist/css/bootstrap-theme.min.css', rel='stylesheet')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
+
+  block scripts
+  script(src='/libs/jquery/dist/jquery.min.js')
+  script(src='/libs/bootstrap/dist/js/bootstrap.min.js')
+
+  script(src='/libs/angular/angular.min.js')
+  script(src='/libs/angular-bootstrap/ui-bootstrap.min.js')

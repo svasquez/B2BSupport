@@ -1,14 +1,7 @@
-(function (indexController) {
-    var categoryData = require("../data/category");
-    var productData = require("../data/product");
+(function (homeController) {
     
-    indexController.getAllProducts = function (req, res, next) {
-        res.set("Content-Type", "application/json");
-        productData.getAllProducts().then(function (prodCategories) {
-            res.send(prodCategories);
-        }).catch(function (err) {
-
-        });
+    homeController.getIndex = function (req, res, next) {
+        res.render('index', { title: 'B2BSupport', description : 'Self-Service Portal' });
 
     }
 

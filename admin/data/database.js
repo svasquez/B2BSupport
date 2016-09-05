@@ -3,6 +3,7 @@
 
   var mongodb = require("mongodb");
   var secret = require("../config/secret");
+
   //var mongoUrl = "mongodb://localhost:27017/theBoard";
   var theDb = null;
 

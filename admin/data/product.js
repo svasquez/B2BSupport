@@ -21,8 +21,7 @@
     }
 
    product.getAllProducts = function () {
-       database.then(function (db) {
-           
+       database.getDb().then(function (db) {      
          try {
             return Promise.resolve(db.products.aggregate([
                 {
