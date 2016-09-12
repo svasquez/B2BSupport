@@ -16,14 +16,13 @@
             });
             
         }).catch(function(err){
-
+            console.log(err);
         });
     }
 
    product.getAllProducts = function () {
-       database.getDb().then(function (db) {      
-         try {
-            return Promise.resolve(db.products.aggregate([
+       database.getDb().then(function (db) {   
+             var categorysByProducts = db.products.aggregate([
                 {
                     $lookup: {
                         from : "categories",
@@ -32,13 +31,10 @@
                         as: "products_categories"
                     }
                 }
-            ]));
-         } catch (error) {
-             return Promise.reject(new Error("Error"));
-         }
-            
+            ]);
+            return Promise.resolve(categorysByProducts); 
         }).catch(function(err){
-
+            return Promise.reject(new Error("Error"));
         });
    }
 

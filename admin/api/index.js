@@ -7,7 +7,7 @@
         productData.getAllProducts().then(function (prodCategories) {
             res.send(prodCategories);
         }).catch(function (err) {
-
+         console.log(err);
         });
 
     }

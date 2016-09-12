@@ -1,6 +1,5 @@
 // database.js
 (function (database) {
-
   var mongodb = require("mongodb");
   var secret = require("../config/secret");
 
@@ -20,7 +19,8 @@
             categories : db.collection("categories")
           };
           //next(null, theDb);
-         return  Promise.resolve(theDb)
+          var p = Promise.resolve(theDb);
+         return p;
         }
       });
     } else {
