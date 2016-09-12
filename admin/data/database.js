@@ -7,25 +7,27 @@
   var theDb = null;
 
   database.getDb = function () {
-    if (!theDb) {
-      // connect to the database
-      mongodb.MongoClient.connect(secret.mongoUrl, function (err, db) {
-        if (err) {
-          return Promise.reject(err);
-        } else {
-          theDb = {
-            db: db,
-            products : db.collection("products"),
-            categories : db.collection("categories")
-          };
-          //next(null, theDb);
-          var p = Promise.resolve(theDb);
-         return p;
-        }
-      });
-    } else {
-     return Promise.resolve(theDb);
-    }
+    return new Promise(function (fullfill, reject) {
+      if (!theDb) {
+        // connect to the database
+        mongodb.MongoClient.connect(secret.mongoUrl, function (err, db) {
+          if (err) {
+            reject(err);
+          } else {
+            theDb = {
+              db: db,
+              products: db.collection("products"),
+              categories: db.collection("categories")
+            };
+            //next(null, theDb);
+            fullfill(theDb);;
+          }
+        });
+      } else {
+        fullfill(theDb);
+      }
+    });
+
   }
 
 })(module.exports);

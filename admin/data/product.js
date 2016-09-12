@@ -21,7 +21,7 @@
     }
 
    product.getAllProducts = function () {
-       database.getDb().then(function (db) {   
+      return database.getDb().then(function (db) {   
              var categorysByProducts = db.products.aggregate([
                 {
                     $lookup: {
@@ -36,6 +36,10 @@
         }).catch(function(err){
             return Promise.reject(new Error("Error"));
         });
+   }
+
+   function getCategoriesByProducts(db){
+       
    }
 
 })(module.exports);
