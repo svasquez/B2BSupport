@@ -10,11 +10,11 @@
 
             db.categories.insert(newCategory , function (err) {
                 if(err){
-                    return Promise.reject(error);
+                    return Promise.reject(err);
                 }
                 
                 return Promise.resolve("Success");
-            })
+            });
         }).catch(function(err){
 
         });
