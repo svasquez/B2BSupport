@@ -9,7 +9,7 @@
             
             db.product.insert(newProduct,function (err) {
                 if(err){
-                    return Promise.reject(error);
+                    return Promise.reject(err);
                 }
                 
                 return Promise.resolve("Success");
@@ -18,7 +18,7 @@
         }).catch(function(err){
             console.log(err);
         });
-    }
+    };
 
    product.getAllProducts = function () {
       return database.getDb().then(function (db) {   
@@ -36,7 +36,7 @@
         }).catch(function(err){
             return Promise.reject(new Error("Error"));
         });
-   }
+   };
 
    function getCategoriesByProducts(db){
        

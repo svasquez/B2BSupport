@@ -19,6 +19,7 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "bower": "^1.7.9"
+    "bower": "^1.7.9",
+    "jshint": "^2.9.3"
   }
 }

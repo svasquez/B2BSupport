@@ -20,7 +20,7 @@
               categories: db.collection("categories")
             };
             //next(null, theDb);
-            fullfill(theDb);;
+            fullfill(theDb);
           }
         });
       } else {
@@ -28,6 +28,6 @@
       }
     });
 
-  }
+  };
 
 })(module.exports);
