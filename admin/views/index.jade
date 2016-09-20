@@ -1,5 +1,6 @@
 extends layout
-
+block scripts
+  script(src='/javascripts/productCatView.js')
 block content
  nav.navbar.navbar-inverse.navbar-fixed-top
       .container
@@ -28,27 +29,15 @@ block content
           | This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
         p
           a.btn.btn-primary.btn-lg(href='http://getbootstrap.com/examples/jumbotron/#', role='button') Learn more »
- .container
+ .container(ng-app="productCatApp")
       // Example row of columns
-      .row
-        .col-md-4
-          h2 Heading
-          p
-            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          p
-            a.btn.btn-default(href='http://getbootstrap.com/examples/jumbotron/#', role='button') View details »
-        .col-md-4
-          h2 Heading
-          p
-            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          p
-            a.btn.btn-default(href='http://getbootstrap.com/examples/jumbotron/#', role='button') View details »
-        .col-md-4
-          h2 Heading
-          p
-            | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          p
-            a.btn.btn-default(href='http://getbootstrap.com/examples/jumbotron/#', role='button') View details »
+      .row(ng-controller="ProductCatController")
+        .col-md-4(ng-repeat='p in products')
+          h2 {{ p.name}}
+          .list-group
+           a.list-group-item(ng-repeat='c in p.products_categories', href="#") {{c.name}}
+          button.btn.btn-info Add Category
+        
       hr
       footer
         p © 2016 Company, Inc.
