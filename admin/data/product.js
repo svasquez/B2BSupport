@@ -1,11 +1,13 @@
 (function (product) {
     var database = require("./database");
-    product.add = function (name) {
-        database.then(function (db) {
+    product.add = function (pro) {
+        return database.then(function (db) {
             var newProduct = {
-                name: name,
+                name: pro.name,
+                description : pro.description,
                 creationDate: new Date(),
-                isEnable: false
+                isEnabled: true
+                
             };
 
             db.product.insert(newProduct, function (err) {

@@ -32,9 +32,19 @@ block content
  .container(ng-app="productCatApp")
       // Example row of columns
       .row(ng-controller="ProductCatController")
+       form
+        .form-group
+          label Name of product:
+          input(type='text',class="form-control")
+        .form-group
+          label Description of product:
+          input(type='text', class="form-control")
+        .form-group
+          input.btn.btn-primary(type='submit', value='Add Product')
         .col-md-4(ng-repeat='p in products')
+         div(style="width:360px ; height: 66px")
           h2 {{ p.name}}
-          .list-group
+         .list-group
            a.list-group-item(ng-repeat='c in p.products_categories', href="#") {{c.name}}
           button.btn.btn-info Add Category
         

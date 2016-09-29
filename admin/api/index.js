@@ -14,4 +14,11 @@
 
     };
 
+    indexController.addProduct = function (req,res,next) {
+        productData.add(req.body).then(function(product) {
+           res.send(product); 
+        });
+        
+    };
+
 })(module.exports);
